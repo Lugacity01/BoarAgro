@@ -21,7 +21,7 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-gray-900 mb-4">Contact Us</h3>
             <div className="space-y-2 text-sm text-gray-600">
-              <p>info@boaragro@gmail.com</p>
+              <p>info@boaragro.com</p>
               <p>+234 813 961 7941</p>
             </div>
           </div>
