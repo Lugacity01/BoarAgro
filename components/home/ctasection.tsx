@@ -3,59 +3,107 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function CTASection() {
+  const [hovered, setHovered] = useState(false);
   return (
-  
-    <section className="py-20 bg-[#2D7A3E] text-white relative overflow-hidden">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-        className="container mx-auto px-3 md:px-6 lg:px-8 text-center relative z-10"
-      >
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeInUp}
+      className="py-20 bg-[#2D7A3E] relative text-white relative overflow-hidden"
+    >
+      <div className="absolute inset-0 ">
+        <Image
+          src="/images/bg.png"
+          alt="Cocoa pods on tree"
+          fill
+          className="object-cover brightness-75"
+          priority
+        />
+      </div>
+      <div className="container mx-auto px-1 md:px-6 lg:px-8 text-center relative z-10">
         <motion.h2
           variants={fadeInUp}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 text-balance"
+          className="text-[26px] lg:text-[45px] xl:text-[50px] font-bold mb-8 text-balance"
         >
-          Lets Redefine Africa
-          <br />
-          Farming Value Chain.
+          Let's Redefine Africa's{" "}
+          <span className="lg:block ">Farming Value Chain.</span>
         </motion.h2>
+
         <motion.div
           variants={staggerContainer}
-          className="flex justify-center items-center gap-4"
+          initial="hidden"
+          animate="visible"
+          className="flex col-span-3 items-center justify-self-center"
         >
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.8 },
-              visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          {/* Contact Button */}
+          <motion.div variants={scaleIn}>
             <Link href="/contact">
               <Button
                 size="lg"
-                className="bg-white hover:bg-gray-100 text-[#2D7A3E] px-8 py-6 text-lg rounded-full font-semibold"
+                className="bg-[#ffffff] w-60 lg:w-fit hover:text-[#ffffff] hover:bg-[#236530] text-[#000000] px-8 py-6 text-lg rounded-full"
               >
                 Contact Us
               </Button>
             </Link>
           </motion.div>
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.8 },
-              visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-            }}
-            className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center"
-          >
-            <ArrowRight className="h-6 w-6" />
+
+          {/* Connector line */}
+          <div className="w-3 h-0.5 bg-[#d2dfd5]" />
+
+          {/* Arrow Button */}
+          <motion.div variants={scaleIn}>
+            <Button
+              variant="ghost"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              className="
+                relative
+                flex w-12 h-12 p-0
+                items-center justify-center
+                bg-white hover:bg-[#236530]
+                rounded-full
+              ">
+              {/* Black arrow (default) */}
+              <Image
+                src="/icons/arrow_top_black.png"
+                width={30}
+                height={30}
+                alt="arrow up"
+                className={`absolute transition-opacity duration-200 ${
+                  hovered ? "opacity-0" : "opacity-100"
+                }`}
+              />
+
+              {/* White arrow (hover) — smaller asset, scaled */}
+              <Image
+                src="/icons/arrow_top.png"
+                width={6}
+                height={6}
+                alt="arrow up"
+                className={`absolute transition-opacity duration-200 ${
+                  hovered
+                    ? "opacity-100 scale-[2.15]"
+                    : "opacity-0 scale-[2.15]"
+                }`}
+              />
+            </Button>
           </motion.div>
         </motion.div>
-      </motion.div>
-    </section>
+      </div>
+      <div className="absolute -bottom-30 right-70 w-50 h-50 ">
+        <Image
+          src="icons/curve_arrow.svg"
+          width={100}
+          height={100}
+          alt="leafybg"
+        />
+      </div>{" "}
+    </motion.section>
   );
 }

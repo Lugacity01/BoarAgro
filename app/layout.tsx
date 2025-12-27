@@ -1,12 +1,9 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
-import { Footer } from "@/components/footer"
-import { Navigation } from "@/components/nagivation"
-
-const inter = Inter({ subsets: ["latin"] })
+import type React from "react";
+import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/nagivation";
 
 export const metadata: Metadata = {
   title: "BOAR Agro - Export-Grade Cocoa & Oilseed Production",
@@ -30,21 +27,30 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="scrollbar-hide">
-      <body className={`${inter.className}  font-sans antialiased`}>
+      <link
+        rel="preconnect"
+        href="https://fonts.cdnfonts.com"
+        crossOrigin="anonymous"
+      />
+      <link
+        href="https://fonts.cdnfonts.com/css/neue-montreal"
+        rel="stylesheet"
+      />
+      <body className="font-sans antialiased">
         <Navigation />
         {children}
         <Footer />
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
