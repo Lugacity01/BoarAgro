@@ -23,7 +23,7 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className=" absolute lg:bottom-10 bottom-15 z-10 container mx-auto px-4 md:px-12 lg:px-20 text-white ">
+      <div className=" absolute lg:bottom-10 bottom-20 z-10 container mx-auto px-4 md:px-12 lg:px-20 text-white ">
         <motion.h1
           initial="hidden"
           animate="visible"
