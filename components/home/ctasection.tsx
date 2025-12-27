@@ -96,7 +96,7 @@ export default function CTASection() {
           </motion.div>
         </motion.div>
       </div>
-      <div className="absolute -bottom-30 right-70 w-50 h-50 ">
+      <div className="absolute lg:-bottom-30 lg:right-70 -right-1 lg:w-50 w-30 lg:h-50 h-30 ">
         <Image
           src="icons/curve_arrow.svg"
           width={100}
