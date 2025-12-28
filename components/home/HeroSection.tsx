@@ -11,7 +11,7 @@ export default function HeroSection() {
     <motion.section
   initial="hidden"
   animate="visible"
-  className="relative min-h-screen flex overflow-hidden"
+  className="relative min-h-150 lg:min-h-screen flex overflow-hidden"
 >
   {/* Background */}
   <div className="absolute inset-0 z-0">
