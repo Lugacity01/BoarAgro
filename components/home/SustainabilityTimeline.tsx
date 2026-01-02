@@ -21,9 +21,9 @@ export default function SustainabilityTimeline() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="lg:py-24 py-10 lg:px-20 bg-[#FBF7F2] text-[#2D2A26] relative overflow-hidden"
+        className="mx-auto px-4 md:px-6 lg:px-10 xl:px-20 py-10  bg-[#FBF7F2] text-[#2D2A26] relative overflow-hidden"
       >
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="container xl:mx-auto  xl:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-20 gap-10 items-center">
             {/* LEFT CONTENT */}
             <motion.div variants={fadeInLeft}>

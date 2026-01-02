@@ -32,9 +32,9 @@ export default function HighlightsSection() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="lg:py-20 py-10 lg:px-20 bg-[#F7FDF9]"
+      className="mx-auto px-4 md:px-6 lg:p-10 xl:px-20 py-10  bg-[#F7FDF9]"
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="container xl:mx-auto  xl:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div variants={staggerContainer}>
             <motion.h2

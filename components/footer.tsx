@@ -10,12 +10,12 @@ const socials = [
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/boaragro",
     icon: Instagram,
   },
   {
     name: "Twitter / X",
-    href: "https://twitter.com",
+    href: "https://x.com/BOAR_Agro",
     icon: Twitter,
   },
 ];
@@ -39,10 +39,10 @@ const companyLinks = [
 export function Footer() {
   return (
     <footer className="bg-white border-t py-12">
-      <div className="container mx-auto px-4 md:px-6 lg:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-9 gap-8 mb-8">
+      <div className="container mx-auto px-4 md:px-6 lg:px-10 xl:px-20 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:mx-auto  xl:px-6 lg:grid-cols-12 gap-8 mb-8">
           {/* Company Info */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-4">
             <div className="relative w-16 h-16 mb-4">
               <Image
                 src="/boar_logo.png"
@@ -57,6 +57,8 @@ export function Footer() {
               middlemen.
             </p>
           </div>
+
+          <div className="xl:col-span-2 lg:col-span-1 lg:flex hidden"></div>
 
           {/* Contact Us */}
           <div className="lg:col-span-2 lg:text-[16px] text-[14px]">
@@ -105,7 +107,7 @@ export function Footer() {
         </div>
 
         <div className="border-t pt-8 text-center text-sm text-gray-600">
-          <p>Copyright 2025, All Rights Reserved</p>
+          <p>Copyright 2026, All Rights Reserved</p>
         </div>
       </div>
     </footer>

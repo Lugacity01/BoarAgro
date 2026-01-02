@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/nagivation";
+import { AIChatWidget } from "@/components/ai-chat-widget";
 
 export const metadata: Metadata = {
   title: "BOAR Agro - Export-Grade Cocoa & Oilseed Production",
@@ -49,6 +50,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
+        <AIChatWidget />
         <Analytics />
       </body>
     </html>

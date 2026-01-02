@@ -33,7 +33,7 @@ export default function ProductsSection() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="lg:py-24 py-8 lg:px-20 bg-gradient-to-b from-white to-gray-50 relative"
+        className="mx-auto px-4 md:px-6 lg:p-10 xl:px-20 bg-gradient-to-b from-white to-gray-50 relative"
       >
         <div className="absolute inset-0 opacity-5">
           <div
@@ -46,7 +46,7 @@ export default function ProductsSection() {
           />
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="container xl:mx-auto  xl:px-8 relative z-10">
           <motion.div variants={fadeInUp} className="text-center mb-16">
             {/* <motion.div
               initial={{ scale: 0 }}
@@ -92,7 +92,7 @@ export default function ProductsSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
                 <div className="p-4">
-                  <h3 className="text-[18px] lg:text-[24px] font-bold mb-4 text-[#133F1E] group-hover:text-[#2D7A3E] transition-colors">
+                  <h3 className="text-[18px] lg:text-[24px] font-medium mb-4 text-[#133F1E] group-hover:text-[#2D7A3E] transition-colors">
                     {product.title}
                   </h3>
                   <p className="text-[#44464B] line-clamp-3 text-[14px] lg:text-[16px] text-justify leading-relaxed mb-6">

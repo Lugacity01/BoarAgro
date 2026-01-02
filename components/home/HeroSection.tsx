@@ -31,7 +31,7 @@ export default function HeroSection() {
       lg:absolute lg:bottom-10 lg:left-0
     "
   >
-    <div className="container mx-auto px-4 md:px-12 lg:px-20 text-white pb-16 lg:pb-0">
+    <div className="container mx-auto px-4 md:px-6 lg:p-10 xl:px-20 text-white pb-16 lg:pb-0">
       <motion.h1
         variants={{
           hidden: { opacity: 0 },

@@ -36,7 +36,7 @@ export default function WhyBoarAgroSection() {
       variants={staggerContainer}
       className="py-24bg-[#F7FBF9]"
     >
-      <div className="container mx-auto py-10 px-4 md:px-6  lg:px-20 ">
+      <div className="container mx-auto py-10 px-4 md:px-6 lg:px-10 xl:px-20 ">
         {/* HEADER */}
         <motion.div variants={fadeInUp} className="text-center mb-20">
           <h2 className="text-[20px] md:text-[50px] font-bold mb-3 text-[#133F1E]">
