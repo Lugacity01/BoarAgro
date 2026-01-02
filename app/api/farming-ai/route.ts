@@ -1,6 +1,8 @@
 import { OpenRouter } from "@openrouter/sdk";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
 
 const openrouter = new OpenRouter({
   apiKey: process.env.OPENROUTER_API_KEY!,
