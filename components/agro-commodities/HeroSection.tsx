@@ -16,7 +16,7 @@ export default function AgroHeroSection() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/farming_hero.jpg"
+          src="/images/agro-commodities.jpg"
           alt="Cocoa pods on tree"
           fill
           className="object-cover brightness-50"
@@ -43,8 +43,8 @@ export default function AgroHeroSection() {
             className="text-[22px] sm:text-3xl lg:text-3xl xl:text-[45px] font-medium mb-6 leading-tight"
           >
             {[
-              "Exporting Premium Nigerian Commodities ",
-              "To Global Market",
+              "Exporting Premium Nigerian Commodities.",
+              // "To Global Market",
             ].map((line, i) => (
               <motion.span
                 key={i}
@@ -68,8 +68,8 @@ export default function AgroHeroSection() {
               We operate multiple farming sites across Nigeria, with a strong
               focus on sustainability, productivity, and long-term value
               creation. Our farming operations are designed to support
-              export-grade quality while promoting responsible land use and
-              community engagement.
+              export-grade quality globally while promoting responsible land use
+              and community engagement.
             </motion.p>
 
             <motion.div

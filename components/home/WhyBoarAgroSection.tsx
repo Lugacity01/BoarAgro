@@ -39,13 +39,11 @@ export default function WhyBoarAgroSection() {
       <div className="container mx-auto py-10 px-4 md:px-6 lg:px-10 xl:px-20 ">
         {/* HEADER */}
         <motion.div variants={fadeInUp} className="text-center mb-20">
-          <h2 className="text-[20px] md:text-[50px] font-bold mb-3 text-[#133F1E]">
+          <h2 className="text-[20px] lg:text-[50px] xl:text-[52px] font-medium mb-3 text-[#133F1E]">
             Why BOAR Agro?
           </h2>
-          <p className="lg:text-lg text-center text-md text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our value chain links farmers directly to processors, delivering
-            better prices, stronger quality, faster delivery, and full
-            traceability.
+         <p className="lg:text-[20px] xl:text-[24px] text-[14px] text-center text-md text-[#44464B] max-w-3xl mx-auto leading-relaxed">
+            BOAR Agro manages the full export documentation process to ensure smooth clearance and delivery at the destination.
           </p>
         </motion.div>
 
