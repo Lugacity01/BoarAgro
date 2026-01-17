@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   title: "BOAR Agro - Export-Grade Cocoa & Oilseed Production",
   description:
     "Feeding The Future, Sustainably With Export-Grade Cocoa & Oilseed Production. From our farms in Nigeria to processors across Europe, Asia, and the UK.",
-  generator: "v0.app",
   icons: {
     icon: [
       {

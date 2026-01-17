@@ -12,6 +12,30 @@ import {
   listItemVariant,
 } from "@/lib/animations";
 import CTASection from "@/components/home/ctasection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "BOAR Agro About",
+  description:
+    "Feeding The Future, Sustainably With Export-Grade Cocoa & Oilseed Production. From our farms in Nigeria to processors across Europe, Asia, and the UK.",
+  icons: {
+    icon: [
+      {
+        url: "/boar_logo.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/boar_logo.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/boar_logo.png",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: "/apple-icon.png",
+  },
+};
 
 export default function AboutPage() {
   return (

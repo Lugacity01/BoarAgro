@@ -65,11 +65,9 @@ export default function AgroHeroSection() {
               transition={{ delay: 0.6 }}
               className="text-[14px] sm:text-[16px] md:text-[18px] text-[#DBDBDB] col-span-9 mb-6 lg:mb-0"
             >
-              We operate multiple farming sites across Nigeria, with a strong
-              focus on sustainability, productivity, and long-term value
-              creation. Our farming operations are designed to support
-              export-grade quality globally while promoting responsible land use
-              and community engagement.
+              BOAR Agro Ltd is a licensed agri-commodities exporter, actively
+              trading and supplying agricultural products from Nigeria to
+              international processors, manufacturers, and trading partners.
             </motion.p>
 
             <motion.div

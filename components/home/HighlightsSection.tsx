@@ -19,12 +19,13 @@ export default function HighlightsSection() {
       bold: "Of Cocoa, Soybeans & Other Agri Commodities",
     },
     {
-      text: "Direct Supply To International Processors",
+      text: " Exported Directly to International Processors ",
       bold: "In Amsterdam, Singapore & The UK",
-    },
-    { text: "200+ Acres Of Managed Farmland", bold: "With Expansion Plans" },
+    }, 
+    
+    { text: "1000+ Acres Of Managed Farmland", bold: "With Expansion Plan" },
     { text: "Sustainable & Climate-Smart Farming Practices" },
-    { text: "Traceable Value Chain", bold: "Farmer → Processor" },
+    { text: "Traceable Value Chain;", bold: "Farmer → Processor" },
     { text: "Year-Round Irrigated Soybeans Production" },
   ];
   return (

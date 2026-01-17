@@ -35,7 +35,7 @@ const portfolioItems: PortfolioItem[] = [
   {
     title: "Pepper Cultivation",
     description:
-      "Select acreage to chili and pepper varieties. These short-cycle crops support cash flow and strengthen local supply chains.",
+      "From habanero to chili and other pepper varieties, these short-cycle crops support cash flow while strengthening local supply chains.",
     image: "/images/bellpepper.jpg",
   },
  

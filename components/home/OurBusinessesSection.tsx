@@ -18,7 +18,7 @@ export default function OurBusinessesSection() {
         <div className="max-w-5xl mx-auto lg:text-center">
           {/* Heading */}
           <h2 className="text-[20px] text-left lg:text-center lg:text-[34px] font-medium text-[#133F1E] mb-6">
-            Our Businesses
+            Our Business
           </h2>
 
           {/* Paragraphs */}
@@ -35,13 +35,13 @@ export default function OurBusinessesSection() {
 
           {/* Buttons */}
           <div className="lg:flex lg:items-center lg:justify-center lg:gap-4 ">
-            <Link href="/business/farming">
+            <Link href="/farming">
               <Button className="border w-full bg-[#2D7A3E] hover:bg-[#236530] text-white lg:text-[20px] mb-3 lg:mb-0 rounded-full px-8 py-6 text-[14px] font-medium">
                 Explore Farming
               </Button>
             </Link>
 
-            <Link href="/business/agri-commodities">
+            <Link href="/agro-commodities">
               <Button
                 variant="outline"
                 className="rounded-full w-full text-[14px] lg:text-[20px]  font-medium border-[#DDE5E1] text-[#0F3D2E] px-8 py-6  hover:bg-[#F0F5F2]"

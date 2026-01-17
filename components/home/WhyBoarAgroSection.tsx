@@ -13,7 +13,7 @@ import Image from "next/image";
 
 const advantages = [
   "From farmers directly to processors",
-  "Pricing is higher and transparent",
+  "Pricing is transparent",
   "Quality is controlled end to end",
   "Logistics are lower cost and faster",
   "Traceability offers full visibility",

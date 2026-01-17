@@ -52,9 +52,7 @@ export function Footer() {
               />
             </div>
             <p className="text-[#44464B] text-[14px] lg:text-[16px] leading-relaxed">
-              BOAR Agro connects Nigerian farms directly to international cocoa
-              processors and priority export buyers across the world, zero
-              middlemen.
+              BOAR Agro connects Nigerian farms directly to global markets, with zero middlemen.
             </p>
           </div>
 

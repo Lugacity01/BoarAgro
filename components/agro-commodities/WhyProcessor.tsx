@@ -26,7 +26,7 @@ const highlights = [
   {
     title: "Flexible Specs, Export-Ready",
     description:
-      "Buyer-specified grading and packaging, managed certifications (SGS/Soncap/Phyto), and complete export documentation for smooth, compliant shipments.",
+      "Buyer-specified grading and packaging, managed certifications (SGS / Soncap / Phyto), and complete export documentation for smooth, compliant shipments.",
     icon: FileCheck,
   },
 ];
@@ -107,7 +107,7 @@ export const WhyProcessor = () => {
                       </h3>
 
                       {/* Description */}
-                      <p className="lg:text-[18px] text-[14px] text-[#44464B] line-clamp-4 text-justify leading-relaxed">
+                      <p className="lg:text-[18px] text-[14px] text-justify text-[#44464B] leading-relaxed">
                         {item.description}
                       </p>
                     </div>

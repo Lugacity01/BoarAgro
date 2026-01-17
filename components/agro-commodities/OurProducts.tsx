@@ -6,7 +6,7 @@ const products = [
   {
     name: "Cocoa Beans (Fermented & Dried)",
     image:
-      "/images/cocoa_beans.jpg",
+      "/images/cocoa_image.jpg",
   },
   {
     name: "Soybeans",
@@ -21,7 +21,7 @@ const products = [
   {
     name: "Sesame Seeds",
     image:
-      "/images/sesame_seeds.jpg",
+      "/images/sesame_seed.webp",
   },
   {
     name: "Dried Split Ginger",

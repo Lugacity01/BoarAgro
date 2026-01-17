@@ -87,7 +87,7 @@ export function Navigation() {
                       : "text-base text-white hover:text-gray-200"
                   }`}
                 >
-                  Our Businesses
+                  Our Business
                   <ChevronDown className="w-4 h-4 transition-transform group-data-[state=open]:rotate-180" />
                 </button>
               </DropdownMenuTrigger>
@@ -181,7 +181,7 @@ export function Navigation() {
               {/* Our Businesses (Mobile) */}
               <Collapsible>
                 <CollapsibleTrigger className="flex w-full items-center justify-between py-2 font-medium text-gray-700">
-                  Our Businesses
+                  Our Business
                   <ChevronDown className="w-5 h-5" />
                 </CollapsibleTrigger>
 
