@@ -47,23 +47,13 @@ export default function ProductsSection() {
         </div>
 
         <div className="container xl:mx-auto  xl:px-8 relative z-10">
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            {/* <motion.div
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, type: "spring" }}
-              className="inline-block mb-4"
-            >
-              <span className="bg-[#2D7A3E]/10 text-[#2D7A3E] px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-wider">
-                Premium Quality
-              </span>
-            </motion.div> */}
+          <motion.div variants={fadeInUp} className="text-center mb-10">
+      
             <h2 className="text-[20px] md:text-[50px] font-medium text-[#133F1E] ">
               Our Products
             </h2>
             <p className="lg:text-lg text-center text-md text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Rooted in Africa, sustainable by nature, traded across global markets
+              From farm to global market - transparently and sustainably.
             </p>
           </motion.div>
 
@@ -95,7 +85,7 @@ export default function ProductsSection() {
                   <h3 className="text-[18px] lg:text-[24px] font-medium mb-4 text-[#133F1E] group-hover:text-[#2D7A3E] transition-colors">
                     {product.title}
                   </h3>
-                  <p className="text-[#44464B] line-clamp-3 text-[14px] lg:text-[16px] text-justify leading-relaxed mb-6">
+                  <p className="text-[#44464B] text-[14px] lg:text-[16px] text-justify leading-relaxed mb-6">
                     {product.description}
                   </p>
                   <motion.div

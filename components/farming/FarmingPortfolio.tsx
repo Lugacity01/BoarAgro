@@ -157,7 +157,7 @@ export default function FarmingPortfolio() {
                   <h3 className="text-[18px] lg:text-[24px] font-medium mb-4 text-[#133F1E] group-hover:text-[#2D7A3E] transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-[#44464B] line-clamp-3 text-[14px] lg:text-[16px] text-justify leading-relaxed mb-6">
+                  <p className="text-[#44464B] text-[14px] lg:text-[16px] text-justify leading-relaxed mb-6">
                     {item.description}
                   </p>
                 </div>

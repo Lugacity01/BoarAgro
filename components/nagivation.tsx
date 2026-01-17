@@ -40,7 +40,7 @@ export function Navigation() {
 
   const businessLinks = [
     { href: "/farming", label: "Farming" },
-    { href: "/agro-commodities", label: "Agro Commodities" },
+    { href: "/agro-commodities", label: "Agro Commodities Trading" },
   ];
 
   return (
