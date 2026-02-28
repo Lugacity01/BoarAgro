@@ -4,14 +4,12 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/nagivation";
-import { Providers } from "@/components/Providers";
-import { Toaster } from "react-hot-toast";
 
 
 export const metadata: Metadata = {
-  title: "BOAR Agro - From farm to global market - transparently and sustainably",
+  title: "BOAR Agro - Export-Grade Cocoa & Oilseed Production",
   description:
-    "Rooted in Africa, sustainable by nature and traded across global markets",
+    "Feeding The Future, Sustainably With Export-Grade Cocoa & Oilseed Production. From our farms in Nigeria to processors across Europe, Asia, and the UK.",
   icons: {
     icon: [
       {
@@ -48,12 +46,9 @@ export default function RootLayout({
         rel="stylesheet"
       />
       <body className="font-sans antialiased">
-        <Providers>
-          <Navigation />
-          {children}
-          <Footer />
-          <Toaster position="top-right" />
-        </Providers>
+        <Navigation />
+        {children}
+        <Footer />
 
         <Analytics />
       </body>

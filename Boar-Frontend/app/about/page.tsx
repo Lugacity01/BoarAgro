@@ -1,5 +1,5 @@
 import AboutDetails from "@/components/about/about-details";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About BOAR Agro | Traceable Agricultural Supply Chain",

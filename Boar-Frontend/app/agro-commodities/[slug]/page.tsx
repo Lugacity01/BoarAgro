@@ -1,7 +1,7 @@
 import { getProductBySlug } from "@/lib/products";
 import ProductDetailClient from "@/components/agro-commodities/product-detail";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export async function generateMetadata({
     params: rawParams,

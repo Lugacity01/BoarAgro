@@ -1,5 +1,5 @@
 import CareersPage from "@/components/careers/careers-page";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Careers at BOAR Agro | Join Our Sustainable Mission",

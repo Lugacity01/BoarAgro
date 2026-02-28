@@ -265,7 +265,7 @@ export default function ProductsPage() {
                   </div>
                 </motion.div>
 
-            
+                {/* Content Side */}
                 <motion.div
                   variants={index % 2 === 0 ? fadeInRight : fadeInLeft}
                   className={`${index % 2 === 1 ? "lg:order-1" : ""}`}
