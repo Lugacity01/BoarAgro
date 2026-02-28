@@ -278,7 +278,7 @@ export default function ProductsPage() {
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Specifications</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {product.specifications.map((spec, idx) => (
+                      {product.specifications.map((spec: string, idx: number) => (
                         <motion.div
                           key={idx}
                           initial={{ opacity: 0, x: -20 }}
@@ -298,7 +298,7 @@ export default function ProductsPage() {
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Available Variants</h3>
                     <div className="space-y-3">
-                      {product.variants.map((variant, idx) => (
+                      {product.variants.map((variant: any, idx: number) => (
                         <motion.div
                           key={idx}
                           initial={{ opacity: 0, y: 10 }}
@@ -318,7 +318,7 @@ export default function ProductsPage() {
                   <div className="mb-8">
                     <h3 className="text-2xl font-bold mb-4 text-gray-900">Key Benefits</h3>
                     <div className="space-y-2">
-                      {product.benefits.map((benefit, idx) => (
+                      {product.benefits.map((benefit: string, idx: number) => (
                         <motion.div
                           key={idx}
                           initial={{ opacity: 0, x: -20 }}
@@ -338,7 +338,7 @@ export default function ProductsPage() {
                   <div>
                     <h3 className="text-lg font-bold mb-3 text-gray-900">Target Markets</h3>
                     <div className="flex flex-wrap gap-2">
-                      {product.markets.map((market, idx) => (
+                      {product.markets.map((market: string, idx: number) => (
                         <span
                           key={idx}
                           className="bg-[#2D7A3E]/10 text-[#2D7A3E] px-4 py-2 rounded-full text-sm font-semibold"
