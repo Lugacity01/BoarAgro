@@ -1,9 +1,13 @@
+
+
 import type React from "react";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/nagivation";
+import { Providers } from "@/components/Providers";
+import { Toaster } from "react-hot-toast";
 
 
 export const metadata: Metadata = {
@@ -46,9 +50,12 @@ export default function RootLayout({
         rel="stylesheet"
       />
       <body className="font-sans antialiased">
-        <Navigation />
-        {children}
-        <Footer />
+        <Providers>
+          <Navigation />
+          {children}
+          <Footer />
+          <Toaster position="top-right" />
+        </Providers>
 
         <Analytics />
       </body>
