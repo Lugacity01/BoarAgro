@@ -2,43 +2,8 @@
 
 import Image from "next/image";
 
-const products = [
-  {
-    name: "Cocoa Beans (Fermented & Dried)",
-    image:
-      "/images/cocoa_image.jpg",
-  },
-  {
-    name: "Soybeans",
-    image:
-      "/images/soya_beans_agro.jpg",
-  },
-  {
-    name: "Raw Cashew Nuts (RCN)",
-    image:
-      "/images/raw_cashew_nuts.jpg",
-  },
-  {
-    name: "Sesame Seeds",
-    image:
-      "/images/sesame_seed.webp",
-  },
-  {
-    name: "Dried Split Ginger",
-    image:
-      "/images/dried_split_ginger.jpg",
-  },
-  {
-    name: "Dried Split Hibiscus",
-    image:
-      "/images/dried_split_hibiscus.jpg",
-  },
-  {
-    name: "Dried Chilli Pepper",
-    image:
-      "/images/dried_chilli_pepper.jpg",
-  },
-];
+import Link from "next/link";
+import { productsData } from "@/lib/products";
 
 export default function OurProducts() {
   return (
@@ -58,10 +23,11 @@ export default function OurProducts() {
 
         {/* Top Grid (6 items) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.slice(0, 6).map((product, index) => (
-            <div
+          {productsData.slice(0, 6).map((product, index) => (
+            <Link
+              href={`/agro-commodities/${product.slug}`}
               key={index}
-              className="group relative h-[220px] rounded-lg overflow-hidden"
+              className="group relative h-[220px] rounded-lg overflow-hidden block"
             >
               <Image
                 src={product.image}
@@ -71,30 +37,33 @@ export default function OurProducts() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-colors group-hover:bg-black/20">
                 <p className="text-white font-bold text-[18px] lg:text-[22px] xl:text-[24px] md:text-base px-3 text-center">
                   {product.name}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         {/* Full-width last product */}
         <div className="mt-6">
-          <div className="group relative h-[260px] rounded-lg overflow-hidden">
+          <Link
+            href={`/agro-commodities/${productsData[6].slug}`}
+            className="group relative h-[260px] rounded-lg overflow-hidden block"
+          >
             <Image
-              src={products[6].image}
-              alt={products[6].name}
+              src={productsData[6].image}
+              alt={productsData[6].name}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-colors group-hover:bg-black/20">
               <p className="text-white font-bold text-[18px] lg:text-[22px] xl:text-[24px]">
-                {products[6].name}
+                {productsData[6].name}
               </p>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

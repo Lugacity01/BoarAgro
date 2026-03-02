@@ -34,29 +34,20 @@ export default function HeroSection() {
         <div className="container mx-auto px-4 md:px-6 lg:p-10 xl:px-20 text-white pb-16 lg:pb-0">
           <motion.h1
             variants={{
-              hidden: { opacity: 0 },
+              hidden: { opacity: 0, y: 20 },
               visible: {
                 opacity: 1,
-                transition: { staggerChildren: 0.08, delayChildren: 0.2 },
+                y: 0,
+                transition: { duration: 0.6, delay: 0.2 },
               },
             }}
-            className="text-[22px] sm:text-3xl lg:text-3xl xl:text-[45px] font-medium mb-6 leading-tight"
+            className="text-[24px] sm:text-2xl lg:text-3xl xl:text-[45px] font-medium mb-6 leading-tight"
           >
-            {[
-              "Rooted in Africa, sustainable by nature",
-              " traded across global markets.",
-            ].map((line, i) => (
-              <motion.span
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                className="block"
-              >
-                {line}
-              </motion.span>
-            ))}
+            Rooted in Africa,{" "}
+            <br className="block sm:hidden" />
+            sustainable by nature,{" "}
+            <br className="hidden lg:block" />
+            and traded across global markets.
           </motion.h1>
 
           <div className="lg:grid lg:grid-cols-12 items-center gap-6">

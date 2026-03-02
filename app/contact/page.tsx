@@ -8,7 +8,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { toast } from "react-hot-toast";
+import { useSubmitContact } from "@/hooks/use-contact";
 import {
   fadeInLeft,
   fadeInRight,
@@ -29,9 +31,28 @@ export default function ContactPage() {
     message: "",
   });
 
+  const submitContactMutation = useSubmitContact();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    submitContactMutation.mutate(formData, {
+      onSuccess: () => {
+        toast.success("Message sent successfully! We will get back to you soon.");
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          countryCode: "+234",
+          companyName: "",
+          role: "",
+          inquiryType: "",
+          message: "",
+        });
+      },
+      onError: (err: any) => {
+        toast.error(err.message || "Failed to send message.");
+      }
+    });
   };
 
   return (
@@ -74,11 +95,6 @@ export default function ContactPage() {
                 partnerships, or careers. Processors, traders, farmers, and
                 partners welcome.
               </p>
-              <p className="lg:text-[18px] xl:text-[20px] text-[14px] text-justify text-[#44464B] ">
-                We're here to connect. Reach out for exports, supply,
-                partnerships, or careers. Processors, traders, farmers, and
-                partners welcome.
-              </p>
 
               <div className="mt-3 space-y-2">
                 <p className="lg:text-[18px] xl:text-[20px] text-[14px] text-justify text-[#44464B] ">
@@ -94,7 +110,7 @@ export default function ContactPage() {
                 </p>
                 <p className="lg:text-[18px] xl:text-[20px] text-[14px] text-justify text-[#44464B] ">
                   <span className="font-bold">Partnerships: </span>{" "}
-                  partnerships@boaragro.com
+                  info@boaragro.com
                 </p>
               </div>
             </motion.div>
@@ -306,13 +322,19 @@ export default function ContactPage() {
                   >
                     <Button
                       type="submit"
+                      disabled={submitContactMutation.isPending}
                       className="w-full bg-[#2D7A3E] hover:bg-[#236530] text-white py-6 rounded-full text-lg font-semibold"
                     >
-                      Submit
+                      {submitContactMutation.isPending ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          Sending...
+                        </>
+                      ) : "Submit"}
                     </Button>
                   </motion.div>
                   <div className="w-12 h-12 bg-[#2D7A3E] rounded-full flex items-center justify-center flex-shrink-0">
-                    <ArrowRight className="h-6 w-6 text-white" />
+                    {submitContactMutation.isPending ? <Loader2 className="h-6 w-6 text-white animate-spin" /> : <ArrowRight className="h-6 w-6 text-white" />}
                   </div>
                 </motion.div>
               </motion.div>
