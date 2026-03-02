@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 
 const socials = [
@@ -26,6 +29,10 @@ const companyLinks = [
     href: "/about",
   },
   {
+    label: "Careers",
+    href: "/careers",
+  },
+  {
     label: "Contact Us",
     href: "/contact",
   },
@@ -37,6 +44,10 @@ const companyLinks = [
 
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith('/admin')) return null;
+
   return (
     <footer className="bg-white border-t py-12">
       <div className="container mx-auto px-4 md:px-6 lg:px-10 xl:px-20 ">

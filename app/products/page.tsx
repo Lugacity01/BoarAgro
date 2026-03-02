@@ -4,18 +4,22 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, ArrowRight, Leaf, Shield, Globe, Truck } from "lucide-react"
+import { CheckCircle2, ArrowRight, Leaf, Shield, Globe, Truck, Loader2 } from "lucide-react"
 import {
   fadeInUp,
   fadeInLeft,
   fadeInRight,
   staggerContainer,
-  
+
 } from "@/lib/animations"
+import { useProducts } from "@/hooks/use-products"
 export default function ProductsPage() {
 
 
-  const products = [
+  const { data: dbProducts = [], isLoading } = useProducts()
+
+  // Fallback products used while loading or if empty
+  const defaultProducts = [
     {
       id: "cocoa",
       name: "Premium Cocoa Beans",
@@ -132,6 +136,8 @@ export default function ProductsPage() {
     },
   ]
 
+  const products = dbProducts.length > 0 ? dbProducts : defaultProducts
+
   const features = [
     {
       icon: Shield,
@@ -195,7 +201,7 @@ export default function ProductsPage() {
             className="text-sm md:text-lg mb-8 text-balance max-w-4xl text-white/90"
           >
             From Nigerian farms to international processors. Premium cocoa beans, high-yield soybeans, and fresh
-             peppers with full traceability.
+            peppers with full traceability.
           </motion.p>
         </div>
       </motion.section>
@@ -229,119 +235,124 @@ export default function ProductsPage() {
       </motion.section>
 
       {/* Product Details */}
-      {products.map((product, index) => (
-        <motion.section
-          key={product.id}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className={`py-20 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
-        >
-          <div className="container mx-auto px-4 md:px-6 lg:px-8">
-            <div
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
-            >
-              {/* Image Side */}
-              <motion.div
-                variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
-                className={`${index % 2 === 1 ? "lg:order-2" : ""}`}
+      {isLoading ? (
+        <div className="py-20 flex justify-center items-center">
+          <Loader2 className="animate-spin h-10 w-10 text-[#2D7A3E]" />
+        </div>
+      ) : (
+        products.map((product: any, index: number) => (
+          <motion.section
+            key={product.id}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className={`py-20 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+          >
+            <div className="container mx-auto px-4 md:px-6 lg:px-8">
+              <div
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
               >
-                <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                  <Image src={product.hero || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
-                  <div className="absolute top-6 left-6 bg-[#2D7A3E] text-white px-4 py-2 rounded-full font-semibold">
-                    Export Grade
+                {/* Image Side */}
+                <motion.div
+                  variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
+                  className={`${index % 2 === 1 ? "lg:order-2" : ""}`}
+                >
+                  <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                    <Image src={product.hero || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                    <div className="absolute top-6 left-6 bg-[#2D7A3E] text-white px-4 py-2 rounded-full font-semibold">
+                      Export Grade
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
 
-              {/* Content Side */}
-              <motion.div
-                variants={index % 2 === 0 ? fadeInRight : fadeInLeft}
-                className={`${index % 2 === 1 ? "lg:order-1" : ""}`}
-              >
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">{product.name}</h2>
-                <p className="text-xl text-[#2D7A3E] mb-6 font-semibold">{product.tagline}</p>
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">{product.description}</p>
+                {/* Content Side */}
+                <motion.div
+                  variants={index % 2 === 0 ? fadeInRight : fadeInLeft}
+                  className={`${index % 2 === 1 ? "lg:order-1" : ""}`}
+                >
+                  <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">{product.name}</h2>
+                  <p className="text-xl text-[#2D7A3E] mb-6 font-semibold">{product.tagline}</p>
+                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">{product.description}</p>
 
-                {/* Specifications */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Specifications</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {product.specifications.map((spec, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="flex items-start gap-2"
-                      >
-                        <CheckCircle2 className="h-5 w-5 text-[#2D7A3E] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{spec}</span>
-                      </motion.div>
-                    ))}
+                  {/* Specifications */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Specifications</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {product.specifications.map((spec: string, idx: number) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.05 }}
+                          className="flex items-start gap-2"
+                        >
+                          <CheckCircle2 className="h-5 w-5 text-[#2D7A3E] flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{spec}</span>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Product Variants */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Available Variants</h3>
-                  <div className="space-y-3">
-                    {product.variants.map((variant, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2D7A3E] transition-colors"
-                      >
-                        <h4 className="font-bold text-gray-900 mb-1">{variant.name}</h4>
-                        <p className="text-gray-600 text-sm">{variant.desc}</p>
-                      </motion.div>
-                    ))}
+                  {/* Product Variants */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Available Variants</h3>
+                    <div className="space-y-3">
+                      {product.variants.map((variant: any, idx: number) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.1 }}
+                          className="bg-white border border-gray-200 rounded-lg p-4 hover:border-[#2D7A3E] transition-colors"
+                        >
+                          <h4 className="font-bold text-gray-900 mb-1">{variant.name}</h4>
+                          <p className="text-gray-600 text-sm">{variant.desc}</p>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Key Benefits */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900">Key Benefits</h3>
-                  <div className="space-y-2">
-                    {product.benefits.map((benefit, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="flex items-start gap-3"
-                      >
-                        <CheckCircle2 className="h-5 w-5 text-[#2D7A3E] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{benefit}</span>
-                      </motion.div>
-                    ))}
+                  {/* Key Benefits */}
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold mb-4 text-gray-900">Key Benefits</h3>
+                    <div className="space-y-2">
+                      {product.benefits.map((benefit: string, idx: number) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: idx * 0.05 }}
+                          className="flex items-start gap-3"
+                        >
+                          <CheckCircle2 className="h-5 w-5 text-[#2D7A3E] flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{benefit}</span>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                {/* Target Markets */}
-                <div>
-                  <h3 className="text-lg font-bold mb-3 text-gray-900">Target Markets</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {product.markets.map((market, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-[#2D7A3E]/10 text-[#2D7A3E] px-4 py-2 rounded-full text-sm font-semibold"
-                      >
-                        {market}
-                      </span>
-                    ))}
+                  {/* Target Markets */}
+                  <div>
+                    <h3 className="text-lg font-bold mb-3 text-gray-900">Target Markets</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {product.markets.map((market: string, idx: number) => (
+                        <span
+                          key={idx}
+                          className="bg-[#2D7A3E]/10 text-[#2D7A3E] px-4 py-2 rounded-full text-sm font-semibold"
+                        >
+                          {market}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </motion.section>
-      ))}
+          </motion.section>
+        )))}
 
       {/* CTA Section */}
       <motion.section

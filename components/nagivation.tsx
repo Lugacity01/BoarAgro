@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -21,8 +22,11 @@ import {
 } from "@/components/ui/collapsible";
 
 export function Navigation() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  if (pathname.startsWith('/admin')) return null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +39,7 @@ export function Navigation() {
   const navLinks = [
     { href: "/products", label: "Products" },
     { href: "/sustainability", label: "Sustainability" },
+    { href: "/careers", label: "Careers" },
     // { href: "/about", label: "About" },
   ];
 
@@ -47,30 +52,27 @@ export function Navigation() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md lg:max-w-[900px] lg:top-4 lg:rounded-2xl lg:mx-auto border border-gray-200"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-white/95 backdrop-blur-md lg:max-w-[900px] lg:top-4 lg:rounded-2xl lg:mx-auto border border-gray-200"
+        : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-10 xl:px-20">
         <div
-          className={`flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "h-16" : "h-20"
-          }`}
+          className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? "h-16" : "h-20"
+            }`}
         >
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <div
-              className={`relative transition-all duration-300 ${
-                isScrolled ? "w-10 h-10" : "w-12 h-12"
-              }`}
+              className={`relative transition-all duration-300 ${isScrolled ? "w-10 h-10" : "w-12 h-12"
+                }`}
             >
               <Image
                 src="/boar_logo.png"
                 alt="BOAR Agro"
                 fill
-                className="object-contain"
+                className={`object-contain  ${isScrolled ? "" : "brightness-0 invert"}`}
               />
             </div>
           </Link>
@@ -81,11 +83,10 @@ export function Navigation() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button
-                  className={`flex items-center gap-1 font-[400] transition-all duration-300 ${
-                    isScrolled
-                      ? "text-[16px] text-gray-700 hover:text-[#2D7A3E]"
-                      : "text-base text-white hover:text-gray-200"
-                  }`}
+                  className={`flex items-center gap-1 font-[400] transition-all duration-300 ${isScrolled
+                    ? "text-[16px] text-gray-700 hover:text-[#2D7A3E]"
+                    : "text-base text-white hover:text-gray-200"
+                    }`}
                 >
                   Our Business
                   <ChevronDown className="w-4 h-4 transition-transform group-data-[state=open]:rotate-180" />
@@ -121,11 +122,10 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-[400] transition-all duration-300 ${
-                  isScrolled
-                    ? "text-[16px] text-gray-700 hover:text-[#2D7A3E]"
-                    : "text-base text-white hover:text-gray-200"
-                }`}
+                className={`font-[400] transition-all duration-300 ${isScrolled
+                  ? "text-[16px] text-gray-700 hover:text-[#2D7A3E]"
+                  : "text-base text-white hover:text-gray-200"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -135,11 +135,10 @@ export function Navigation() {
           {/* Desktop CTA */}
           <Link className="hidden md:flex" href="/contact">
             <Button
-              className={`rounded-full font-[400] transition-all duration-300 ${
-                isScrolled
-                  ? "border border-[#2D7A3E] bg-white text-[#236530] hover:bg-[#236530] hover:text-white px-6 py-5 text-[16px]"
-                  : "bg-[#2D7A3E] hover:bg-[#236530] text-white px-8 py-6 text-base"
-              }`}
+              className={`rounded-full font-[400] transition-all duration-300 ${isScrolled
+                ? "border border-[#2D7A3E] bg-white text-[#236530] hover:bg-[#236530] hover:text-white px-6 py-5 text-[16px]"
+                : "bg-[#2D7A3E] hover:bg-[#236530] text-white px-8 py-6 text-base"
+                }`}
             >
               Contact Us
             </Button>
@@ -148,9 +147,8 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 ${
-              isScrolled ? "text-gray-900" : "text-white"
-            }`}
+            className={`md:hidden p-2 ${isScrolled ? "text-gray-900" : "text-white"
+              }`}
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />
