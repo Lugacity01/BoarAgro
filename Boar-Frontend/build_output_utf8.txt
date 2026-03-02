@@ -1,0 +1,91 @@
+﻿
+> boaragro@0.1.0 build
+> next build
+
+node.exe : 
+[baseline-browser-mapping] 
+The data in this module is 
+over two months old.  To 
+ensure accurate Baseline 
+data, please update: `npm i ba
+seline-browser-mapping@latest 
+-D`
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo            
+  : NotSpecifi    ed: 
+([baseline-bro    
+ws...ping@latest -    
+D`:String) [], Rem    
+oteException
+    + FullyQualifiedEr    
+rorId : NativeComm    andError
+ 
+   Ôû▓ Next.js 16.0.10 (Turbopack)
+   - Environments: .env
+
+ ÔÜá The "middleware" file 
+convention is deprecated. 
+Please use "proxy" instead. 
+Learn more: https://nextjs.org
+/docs/messages/middleware-to-p
+roxy
+   Creating an optimized production build ...
+[baseline-browser-mapping] 
+The data in this module is 
+over two months old.  To 
+ensure accurate Baseline 
+data, please update: `npm i ba
+seline-browser-mapping@latest 
+-D`
+ Ô£ô Compiled successfully in 29.5s
+   Running TypeScript ...
+Failed to compile.
+
+./app/products/page.tsx:281:52
+Type error: Parameter 'spec' 
+implicitly has an 'any' type.
+
+[0m [90m 279 |[39m         
+            
+[33m<[39m[33mh3[39m classN
+ame[33m=[39m[32m"text-2xl 
+font-bold mb-4 text-gray-900"
+[39m[33m>[39m[33mSpecificat
+ions[39m[33m<[39m[33m/[39
+m[33mh3[39m[33m>[39m
+ [90m 280 |[39m             
+        
+[33m<[39m[33mdiv[39m class
+Name[33m=[39m[32m"grid 
+grid-cols-1 sm:grid-cols-2 
+gap-3"[39m[33m>[39m
+[31m[1m>[22m[39m[90m 281 
+|[39m                       {
+product[33m.[39mspecificatio
+ns[33m.[39mmap((spec[33m,[
+39m idx) [33m=>[39m (
+ [90m     |[39m             
+                              
+         [31m[1m^[22m[39m
+ [90m 282 |[39m             
+            [33m<[39m[33mmo
+tion[39m[33m.[39mdiv
+ [90m 283 |[39m             
+              
+key[33m=[39m{idx}
+ [90m 284 |[39m             
+              
+initial[33m=[39m{{ 
+opacity[33m:[39m 
+[35m0[39m[33m,[39m 
+x[33m:[39m 
+[33m-[39m[35m20[39m }}[0m
+Next.js build worker exited 
+with code: 1 and signal: null

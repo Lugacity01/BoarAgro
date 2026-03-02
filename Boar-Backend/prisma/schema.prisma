@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Represents Agro-Commodity Products
+model Product {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  name           String
+  image          String
+  hero           String?
+  tagline        String
+  description    String   @db.Text
+  specifications String[]
+  variants       Json // Array of {name: string, desc: string}
+  markets        String[]
+  benefits       String[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// Represents Open Job Positions on the Careers Page
+model Job {
+  id               String   @id @default(cuid())
+  title            String
+  department       String
+  location         String
+  type             String
+  postedDate       DateTime @default(now())
+  experience       String
+  description      String   @db.Text
+  requirements     String[]
+  responsibilities String[]
+  benefits         String[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relation to applications submitted for this job
+  applications Application[]
+}
+
+// Represents a Contact Form or Job Application submission
+model Application {
+  id          String   @id @default(cuid())
+  jobId       String? // Nullable if it's just a general contact form
+  job         Job?     @relation(fields: [jobId], references: [id])
+  name        String
+  email       String
+  location    String?
+  experience  Int?
+  document    String? // Where the uploaded file is stored (e.g., S3 URL or Vercel Blob)
+  coverLetter String?  @db.Text
+  submittedAt DateTime @default(now())
+}
+
+// Represents Admin Users for the Dashboard
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  password  String
+  role      String   @default("admin") // Can be "superadmin" or "admin"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Represents Contact Form submissions
+model Contact {
+  id          String   @id @default(cuid())
+  fullName    String
+  email       String
+  countryCode String
+  phone       String
+  companyName String?
+  role        String?
+  inquiryType String
+  message     String   @db.Text
+  createdAt   DateTime @default(now())
+}
